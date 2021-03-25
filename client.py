@@ -13,11 +13,11 @@ from Liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, Lif
 """
                       **  MINI SELFBOT VERSION 2 ** 
 
-                    BOT TYPE         -  MINI SELFBOT
+                    BOT TYPE      -  MINI SELFBOT
                     DEVELOPER     -  IMJUSTGOOD.COM/TEAM
-                    SOURCE LIB     -  PYPI/LINEPY
-                    MEDIA API        -  PYPI/JUSTGOOD
-                    PUBLISHED      -  GITHUB.COM/GOODOP/MINI-SELFBOTV2
+                    SOURCE LIB    -  PYPI/LINEPY
+                    MEDIA API     -  PYPI/JUSTGOOD
+                    PUBLISHED     -  GITHUB.COM/GOODOP/MINI-SELFBOTV2
 """
 login = json.loads(open('Data/token.json','r').read())
 setting = json.loads(open('Data/settings.json','r').read())
