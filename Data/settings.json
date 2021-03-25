@@ -1,0 +1,28 @@
+{
+    "adders": false,
+    "addmsg": "Run your own selfbot in github.com/goodop/MINI-SELFBOTV2",
+    "apikey": "imjustgood",
+    "blacklist": [],
+    "gname": {},
+    "join": false,
+    "justGood": "YXBpLmltanVzdGdvb2QuY29t",
+    "keykick": "",
+    "leave": false,
+    "leavemsg": "",
+    "main": "api.imjustgood.com",
+    "maker": [
+        "u569a335d8820a2d399c3d586c246111f",
+        "u5ce7e15b46967f7f8db6b33909420c9c",
+        "u3df07ab6c96c93e81adaba0a727999ea"
+    ],
+    "notMast": "https://i.ibb.co/0yRDYmJ/ang.jpg",
+    "official": "ucfb857ee3e7d641101ae90610752e4d7",
+    "proMax": {},
+    "proStaff": {},
+    "rname": "Default",
+    "target": {},
+    "ticket": false,
+    "welcome": {},
+    "welcomsg": {},
+    "whitelist": []
+}
