@@ -1,0 +1,16 @@
+     𝐂𝐮𝐬𝐭𝐨𝐦𝐢𝐧𝐠        𝐔𝐬𝐚𝐠𝐞
+
+      Upbio:               Text
+      Rname:             Text
+      Gname:             Text
+      Upname:           Text
+      Keykick:            Text
+      Addmsg:           Text                 
+      Leavemsg:       Text                
+      Welcomsg:       Text
+      Broadcast:       Text
+      Updatepict          -
+      Updatedual         -
+      Updategpict        -
+      ──────────
+      Use 「 • 」for prefix.

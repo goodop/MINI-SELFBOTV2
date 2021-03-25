@@ -1,0 +1,15 @@
+       𝐏𝐫𝐨𝐭𝐞𝐜𝐭𝐢𝐨𝐧 𝐂          𝐔𝐬𝐚𝐠𝐞
+
+      Addwl                  On
+      Addbl                   On
+      Addwl                  Tag
+      Addbl                   Tag
+      Delwl                    On
+      Delbl                     On
+      Delwl                    Tag
+      Delbl                     Tag
+      Protect                 On
+      Protect                 Off
+      Protect                 Staff
+      ───────────
+      Use 「 • 」for prefix.

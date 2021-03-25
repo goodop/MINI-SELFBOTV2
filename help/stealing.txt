@@ -1,0 +1,13 @@
+      𝐒𝐭𝐞𝐚𝐥𝐢𝐧𝐠             𝐔𝐬𝐚𝐠𝐞
+
+      Gpict                     -
+      Geturl                    -
+      Getbio                Tag
+      Getmid               Tag
+      Getpict               Tag
+      Locate                Tag
+      Getname            Tag
+      Getcover            Tag
+      Getname            Tag
+      ───────────
+      Use 「 • 」for prefix.

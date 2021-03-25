@@ -1,0 +1,15 @@
+     𝐆𝐫𝐨𝐮𝐩𝐬𝐞𝐭            𝐔𝐬𝐚𝐠𝐞
+
+      Kick                     Tag
+      Invite                   Tag
+      Joinurl                 URL
+      Sider                    On/Off
+      Read                    On/Off
+      Reading                  -
+      Join                     On/Off
+      Ticket                  On/Off
+      Leave                  On/Off
+      Addmsg              On/Off
+      Welcome            On/Off
+      ───────────
+      Use 「 • 」for prefix.

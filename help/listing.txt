@@ -1,0 +1,17 @@
+𝐥𝐢𝐬𝐭𝐢𝐧𝐠
+
+Bye
+Ginfo
+Gbirth
+Groups
+Groupid
+Whitelist
+Blacklist
+Friendlist
+Pendinglist
+Memberlist
+Findblacklist
+Clearwhitelist
+Clearblacklist
+─────────
+Use 「 • 」for prefix.
