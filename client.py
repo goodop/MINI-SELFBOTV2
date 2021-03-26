@@ -139,7 +139,7 @@ def Oup(op):
        if op.type in [32,126]:
            if op.param1 in protectMax:
                if op.param2 not in setting["whitelist"]:
-                  setting["blacklist"][op.param2] = True
+                  setting["blacklist"].append(op.param2)
                   with open('Data/settings.json', 'w') as fp:
                     json.dump(setting, fp, sort_keys=True, indent=4)
                   try:
@@ -151,7 +151,7 @@ def Oup(op):
        if op.type in [11,122]:
            if op.param1 in protectMax and op.param3 == "4":
                if op.param2 not in setting["whitelist"]:
-                   setting["blacklist"][op.param2] = True
+                   setting["blacklist"].append(op.param2)
                    with open('Data/settings.json', 'w') as fp:
                       json.dump(setting, fp, sort_keys=True, indent=4)
                    hoax = client.getGroup(op.param1)
@@ -171,7 +171,7 @@ def Oup(op):
        if op.type == 11:
            if op.param1 in protectMax and op.param3 == "1":
                if op.param2 not in setting["whitelist"]:
-                   setting["blacklist"][op.param2] = True
+                   setting["blacklist"].append(op.param2)
                    with open('Data/settings.json', 'w') as fp:
                       json.dump(setting, fp, sort_keys=True, indent=4)
                    hoax = client.getGroup(op.param1).name
