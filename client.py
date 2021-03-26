@@ -191,13 +191,10 @@ def Oup(op):
             try:
                 msg = op.message
                 txt = msg.text
-                if msg.toType in [0,1,2]:
-                   if msg.toType == 0:
-                       msg.to = msg._from
-                       to = msg._from
-                   if msg.toType in [1,2]:
-                      to = msg.to
-                      ids = msg.id
+                if msg.toType in [0,2]:
+                   to = msg.to
+                   ids = msg.id
+                   msg.to = msg.to
                    if msg.contentType == 0:
                       if None == txt:
                           return
