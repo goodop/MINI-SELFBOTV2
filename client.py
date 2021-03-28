@@ -113,7 +113,7 @@ def Oup(op):
               if op.param2 not in setting["blacklist"]:
                   jangan = client.getGroup(op.param1)
                   if setting["leavemsg"] !="":
-                      mess = "Good bye @! \n" + setting["leavemsg"]
+                      mess = setting["leavemsg"] + " @! "
                       client.sendMention(op.param1,mess,[op.param2])
                   else:
                       mess = "Good bye @! "
@@ -130,10 +130,9 @@ def Oup(op):
 
 
        if op.type in [13,17,55,124,130]:
-          if op.param1 in protectMax:
-            if op.param2 in setting["blacklist"]:
-                try:client.kickoutFromGroup(op.param1,[op.param2])
-                except:pass
+          if op.param2 in setting["blacklist"]:
+              try:client.kickoutFromGroup(op.param1,[op.param2])
+              except:pass
 
 
        if op.type in [32,126]:
