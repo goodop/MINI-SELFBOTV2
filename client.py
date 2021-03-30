@@ -485,10 +485,12 @@ def Oup(op):
                               names = re.findall(r'@(\w+)', cmd)
                               mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                               mentionees = mention['MENTIONEES']
+                              Mmbers = [a.mid for a in client.getGroup(msg.to).members]
                               hole = []
                               for mention in mentionees:
                                   if mention["M"] not in hole:
-                                      hole.append(mention["M"])
+                                     if mention['M'] not in Mmbers:
+                                        hole.append(mention["M"])
                               for mmq in hole:
                                   try:client.kickoutFromGroup(msg.to, [mmq])
                                   except:client.sendMessage(msg.to, "Gagal son.")
@@ -498,10 +500,12 @@ def Oup(op):
                               names = re.findall(r'@(\w+)', cmd)
                               mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                               mentionees = mention['MENTIONEES']
+                              Mmbers = [a.mid for a in client.getGroup(msg.to).members]
                               hole = [];
                               for mention in mentionees:
                                   if mention["M"] not in hole:
-                                      hole.append(mention["M"])
+                                     if mention['M'] not in Mmbers:
+                                        hole.append(mention["M"])
                               for mmq in hole:
                                   try:
                                       client.findAndAddContactsByMid(mmq)
