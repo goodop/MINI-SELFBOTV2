@@ -1786,9 +1786,10 @@ def proinvite(op):
 
 def kekick(op):
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
-              json.dump(setting, fp, sort_keys=True, indent=4) 
+          if op.param2 not in setting["blacklist"]:
+             setting["blacklist"].append(op.param2)
+             with open('Data/settings.json', 'w') as fp:
+               json.dump(setting, fp, sort_keys=True, indent=4) 
 
 while True:
     try:
