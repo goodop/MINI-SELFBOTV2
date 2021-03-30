@@ -45,7 +45,9 @@ read = {
     "pp":False,
     "gpict":{},
     "cctv":{},
-    "imgurl":{}
+    "imgurl":{},
+    "wmessage:{},
+    "lmessage": ""
 }
 
 """
@@ -98,8 +100,8 @@ def Oup(op):
            if op.param1 in setting["welcome"]:
               if op.param2 not in setting["blacklist"]:
                   jangan = client.getGroup(op.param1)
-                  if op.param1 in setting["welcomsg"]: 
-                     text = "Hi @! \nWelcome to " + jangan.name + "\n" + setting["welcomsg"][op.param1]
+                  if op.param1 in read["wmessage"]: 
+                     text = "Hi @! \nWelcome to " + jangan.name + "\n" + read["wmessage"][op.param1]
                      client.sendMention(op.param1,text,[op.param2])
                      client.sendPage(op.param1)
                   else:
@@ -112,8 +114,8 @@ def Oup(op):
           if setting["leave"] == True:
               if op.param2 not in setting["blacklist"]:
                   jangan = client.getGroup(op.param1)
-                  if setting["leavemsg"] !="":
-                      mess = setting["leavemsg"] + " @! "
+                  if read["lmessage"] !="":
+                      mess = read["lmessage"] + " @! "
                       client.sendMention(op.param1,mess,[op.param2])
                   else:
                       mess = "Good bye @! "
@@ -1038,17 +1040,13 @@ def Oup(op):
 
                       if cmd.startswith(".leavemsg: ") or cmd.startswith(rname + "leavemsg: "):
                           data = cmd.split("msg: ")[1]
-                          setting["leavemsg"] = data
-                          with open('Data/settings.json', 'w') as fp:
-                             json.dump(setting, fp, sort_keys=True, indent=4)
+                          read["lmessage"] = data
                           client.sendMessage(msg.to,"Leave message update to:\n{}".format(data))
 
                       if cmd.startswith(".welcomsg: ") or cmd.startswith(rname + "welcomsg: "):
                           data = cmd.split("msg: ")[1]
                           if msg.to in setting["welcome"]:
-                             setting["welcomsg"][msg.to] = data
-                             with open('Data/settings.json', 'w') as fp:
-                                json.dump(setting, fp, sort_keys=True, indent=4)
+                             read["wmessage"][msg.to] = data
                              client.sendMessage(msg.to,"Welcome message update to:\n{}".format(data))
                           else:client.sendMessage(msg.to,"Welcome message not active\nPlease enabled welcome first.")
 
