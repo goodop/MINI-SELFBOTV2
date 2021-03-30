@@ -45,7 +45,9 @@ read = {
     "pp":False,
     "gpict":{},
     "cctv":{},
-    "imgurl":{}
+    "imgurl":{},
+    "wmessage:{},
+    "lmessage": ""
 }
 
 """
@@ -92,14 +94,14 @@ def Oup(op):
                    cctv['readMember'][op.param1][op.param2] = "Time: {}".format(timer)
                    with open('Data/cctv.json', 'w') as fp:
                       json.dump(cctv, fp, sort_keys=True, indent=4)
-           except Exception as e:print (e)
+           except:pass
 
        if op.type in [17,130]:
            if op.param1 in setting["welcome"]:
               if op.param2 not in setting["blacklist"]:
                   jangan = client.getGroup(op.param1)
-                  if op.param1 in setting["welcomsg"]: 
-                     text = "Hi @! \nWelcome to " + jangan.name + "\n" + setting["welcomsg"][op.param1]
+                  if op.param1 in read["wmessage"]: 
+                     text = "Hi @! \nWelcome to " + jangan.name + "\n" + read["wmessage"][op.param1]
                      client.sendMention(op.param1,text,[op.param2])
                      client.sendPage(op.param1)
                   else:
@@ -112,8 +114,8 @@ def Oup(op):
           if setting["leave"] == True:
               if op.param2 not in setting["blacklist"]:
                   jangan = client.getGroup(op.param1)
-                  if setting["leavemsg"] !="":
-                      mess = setting["leavemsg"] + " @! "
+                  if read["lmessage"] !="":
+                      mess = read["lmessage"] + " @! "
                       client.sendMention(op.param1,mess,[op.param2])
                   else:
                       mess = "Good bye @! "
@@ -485,10 +487,12 @@ def Oup(op):
                               names = re.findall(r'@(\w+)', cmd)
                               mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                               mentionees = mention['MENTIONEES']
+                              Mmbers = [a.mid for a in client.getGroup(msg.to).members]
                               hole = []
                               for mention in mentionees:
                                   if mention["M"] not in hole:
-                                      hole.append(mention["M"])
+                                     if mention['M'] not in Mmbers:
+                                        hole.append(mention["M"])
                               for mmq in hole:
                                   try:client.kickoutFromGroup(msg.to, [mmq])
                                   except:client.sendMessage(msg.to, "Gagal son.")
@@ -498,10 +502,12 @@ def Oup(op):
                               names = re.findall(r'@(\w+)', cmd)
                               mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                               mentionees = mention['MENTIONEES']
+                              Mmbers = [a.mid for a in client.getGroup(msg.to).members]
                               hole = [];
                               for mention in mentionees:
                                   if mention["M"] not in hole:
-                                      hole.append(mention["M"])
+                                     if mention['M'] not in Mmbers:
+                                        hole.append(mention["M"])
                               for mmq in hole:
                                   try:
                                       client.findAndAddContactsByMid(mmq)
@@ -1034,17 +1040,13 @@ def Oup(op):
 
                       if cmd.startswith(".leavemsg: ") or cmd.startswith(rname + "leavemsg: "):
                           data = cmd.split("msg: ")[1]
-                          setting["leavemsg"] = data
-                          with open('Data/settings.json', 'w') as fp:
-                             json.dump(setting, fp, sort_keys=True, indent=4)
+                          read["lmessage"] = data
                           client.sendMessage(msg.to,"Leave message update to:\n{}".format(data))
 
                       if cmd.startswith(".welcomsg: ") or cmd.startswith(rname + "welcomsg: "):
                           data = cmd.split("msg: ")[1]
                           if msg.to in setting["welcome"]:
-                             setting["welcomsg"][msg.to] = data
-                             with open('Data/settings.json', 'w') as fp:
-                                json.dump(setting, fp, sort_keys=True, indent=4)
+                             read["wmessage"][msg.to] = data
                              client.sendMessage(msg.to,"Welcome message update to:\n{}".format(data))
                           else:client.sendMessage(msg.to,"Welcome message not active\nPlease enabled welcome first.")
 
@@ -1732,20 +1734,18 @@ def prostaff(op):
 def promax(op):
     try:
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
+          client.kickoutFromGroup(op.param1,[op.param2])
+          client.findAndAddContactsByMid(op.param3)
+          client.inviteIntoGroup(op.param1,[op.param3])
+          if op.param2 not in setting["blacklist"]:
+             setting["blacklist"].append(op.param2)
+             with open('Data/settings.json', 'w') as fp:
                json.dump(setting, fp, sort_keys=True, indent=4)
-           client.kickoutFromGroup(op.param1,[op.param2])
-           client.findAndAddContactsByMid(op.param3)
-           client.inviteIntoGroup(op.param1,[op.param3])
-    except Exception as e:print(e)
+   except Exception as e:print(e)
 
 def proinvite(op):
      try:
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
-              json.dump(setting, fp, sort_keys=True, indent=4)
            try:client.kickoutFromGroup(op.param1,[op.param2])                                         
            except:pass
            mbul = client.getGroup(op.param1)
@@ -1763,6 +1763,10 @@ def proinvite(op):
                if b.mid in op.param3:
                    try:client.kickoutFromGroup(op.param1,[b.mid])
                    except:pass
+           if op.param2 not in setting["blacklist"]:
+              setting["blacklist"].append(op.param2)
+              with open('Data/settings.json', 'w') as fp:
+                json.dump(setting, fp, sort_keys=True, indent=4)
        else:
            mbul = client.getGroup(op.param1)
            for a in mbul.invitee:
@@ -1782,9 +1786,10 @@ def proinvite(op):
 
 def kekick(op):
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
-              json.dump(setting, fp, sort_keys=True, indent=4) 
+          if op.param2 not in setting["blacklist"]:
+             setting["blacklist"].append(op.param2)
+             with open('Data/settings.json', 'w') as fp:
+               json.dump(setting, fp, sort_keys=True, indent=4) 
 
 while True:
     try:
