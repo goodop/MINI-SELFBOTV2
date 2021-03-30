@@ -92,7 +92,7 @@ def Oup(op):
                    cctv['readMember'][op.param1][op.param2] = "Time: {}".format(timer)
                    with open('Data/cctv.json', 'w') as fp:
                       json.dump(cctv, fp, sort_keys=True, indent=4)
-           except Exception as e:print (e)
+           except:pass
 
        if op.type in [17,130]:
            if op.param1 in setting["welcome"]:
