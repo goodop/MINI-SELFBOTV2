@@ -1736,20 +1736,18 @@ def prostaff(op):
 def promax(op):
     try:
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
+          client.kickoutFromGroup(op.param1,[op.param2])
+          client.findAndAddContactsByMid(op.param3)
+          client.inviteIntoGroup(op.param1,[op.param3])
+          if op.param2 not in setting["blacklist"]:
+             setting["blacklist"].append(op.param2)
+             with open('Data/settings.json', 'w') as fp:
                json.dump(setting, fp, sort_keys=True, indent=4)
-           client.kickoutFromGroup(op.param1,[op.param2])
-           client.findAndAddContactsByMid(op.param3)
-           client.inviteIntoGroup(op.param1,[op.param3])
-    except Exception as e:print(e)
+   except Exception as e:print(e)
 
 def proinvite(op):
      try:
        if op.param2 not in setting["whitelist"]:
-           setting["blacklist"].append(op.param2)
-           with open('Data/settings.json', 'w') as fp:
-              json.dump(setting, fp, sort_keys=True, indent=4)
            try:client.kickoutFromGroup(op.param1,[op.param2])                                         
            except:pass
            mbul = client.getGroup(op.param1)
@@ -1767,6 +1765,10 @@ def proinvite(op):
                if b.mid in op.param3:
                    try:client.kickoutFromGroup(op.param1,[b.mid])
                    except:pass
+           if op.param2 not in setting["blacklist"]:
+              setting["blacklist"].append(op.param2)
+              with open('Data/settings.json', 'w') as fp:
+                json.dump(setting, fp, sort_keys=True, indent=4)
        else:
            mbul = client.getGroup(op.param1)
            for a in mbul.invitee:
