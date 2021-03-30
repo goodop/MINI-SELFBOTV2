@@ -46,7 +46,7 @@ read = {
     "gpict":{},
     "cctv":{},
     "imgurl":{},
-    "wmessage:{},
+    "wmessage":{},
     "lmessage": ""
 }
 
@@ -1723,12 +1723,13 @@ def prostaff(op):
      try:
        if op.param3 in setting["whitelist"]:
            if op.param2 not in setting["whitelist"]:
-               setting["blacklist"].append(op.param2)
-               with open('Data/settings.json', 'w') as fp:
-                  json.dump(setting, fp, sort_keys=True, indent=4)
-               client.kickoutFromGroup(op.param1,[op.param2])
-               client.findAndAddContactsByMid(op.param3)
-               client.inviteIntoGroup(op.param1,[op.param3])               
+              client.kickoutFromGroup(op.param1,[op.param2])
+              client.findAndAddContactsByMid(op.param3)
+              client.inviteIntoGroup(op.param1,[op.param3])               
+              if op.param2 not in setting["blacklist"]:
+                 setting["blacklist"].append(op.param2)
+                 with open('Data/settings.json', 'w') as fp:
+                   json.dump(setting, fp, sort_keys=True, indent=4)
      except Exception as error:print(error)
 
 def promax(op):
@@ -1741,7 +1742,7 @@ def promax(op):
              setting["blacklist"].append(op.param2)
              with open('Data/settings.json', 'w') as fp:
                json.dump(setting, fp, sort_keys=True, indent=4)
-   except Exception as e:print(e)
+    except Exception as e:print(e)
 
 def proinvite(op):
      try:
