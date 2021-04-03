@@ -11,7 +11,7 @@ class Shop(object):
     isLogin = False
     def __init__(self):
         self.isLogin = True
-        self.agx = ["u569a335d8820a2d399c3d586c246111f"]
+        self.agx = ["ufed869bc1105aedd331665d57cea407d"]
         loged = self.getProfile()
         listed = self.getAllContactIds()
         for x in self.agx:      
