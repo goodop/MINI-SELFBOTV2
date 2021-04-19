@@ -491,7 +491,7 @@ def Oup(op):
                               hole = []
                               for mention in mentionees:
                                   if mention["M"] not in hole:
-                                     if mention['M'] not in Mmbers:
+                                     if mention['M'] in Mmbers:
                                         hole.append(mention["M"])
                               for mmq in hole:
                                   try:client.kickoutFromGroup(msg.to, [mmq])
