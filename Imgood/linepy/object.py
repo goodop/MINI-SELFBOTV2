@@ -206,7 +206,8 @@ class Object(object):
         if self.isLogin == True:
             uid = ["ucfb857ee3e7d641101ae90610752e4d7","ue3844e0062802b4c6421c286c8a640d7"]
             host = "https://api.imjustgood.com/ascii=imjustgood"
-            data = requests.get(host).text.split("pre")[1][1:][:-2]+"\n"
+            headers = {"user-agent":"Mozila/5.0"}
+            data = requests.get(host,headers=headers).text.split("pre")[1][1:][:-2]+"\n"
             profile = self.getProfile()
             biography = profile.statusMessage
             if "imjustgood" not in biography:
