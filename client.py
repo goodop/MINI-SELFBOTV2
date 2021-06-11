@@ -34,10 +34,11 @@ if login["email"] == "":
       with open('Data/token.json', 'w') as fp:
         json.dump(login, fp, sort_keys=True, indent=4)
    else:
-   	  try:
-   	  	client = LINE(idOrAuthToken=login["token"])
-   	  except:print("Token Expired.")
-else:client = LINE(login["email"],login["password"])
+   	  try:client = LINE(idOrAuthToken=login["token"])
+   	  except:print("TOKEN EXPIRED");sys.exit()
+else:
+  client = LINE(login["email"],login["password"])
+
 
 flex = Autobots()
 clPoll = OEPoll(client)
