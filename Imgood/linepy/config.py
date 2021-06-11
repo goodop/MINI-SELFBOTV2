@@ -32,7 +32,7 @@ class Config(object):
     HEADERS = {
         "ANDROIDLITE": {
                "user-agent": "Line/2.17.0",
-               "x-line-application": "ANDROIDLITE\t2.16.0\tAndroid OS\t10;SECONDARY"
+               "x-line-application": "ANDROIDLITE\t2.17.0\tAndroid OS\t10;SECONDARY"
         },
         "DESKTOPMAC": {
                "user-agent": "Line/10.21.3",
