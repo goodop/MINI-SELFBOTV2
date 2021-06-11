@@ -7,8 +7,7 @@ class Config(object):
     LINE_OBS_DOMAIN             = 'https://obs-sg.line-apps.com'
     LINE_TIMELINE_API           = 'https://gd2.line.naver.jp/mh/api'
     LINE_TIMELINE_MH            = 'https://gd2.line.naver.jp/mh'
-    LINE_API_PATH               =  "https://legy-jp.line.naver.jp/acct/lgn/sq/v1"
-    LINE_API_POLL               =  "https://legy-jp.line.naver.jp/acct/lp/lgn/sq/v1"
+    LINE_OBJECT_URL             = 'https://obs.line-scdn.net/'
     LINE_LOGIN_QUERY_PATH       = '/api/v4p/rs'
     LINE_AUTH_QUERY_PATH        = '/api/v4/TalkService.do'
 
