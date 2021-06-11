@@ -28,7 +28,6 @@ loger = Login()
 if login["email"] == "":
    if login["token"] == "":
       data = loger.logqr(cert=None) #You can put your Crt token here
-      print("haha: " + data)
       client = LINE(idOrAuthToken=data)
       login["token"] = data
       with open('Data/token.json', 'w') as fp:
