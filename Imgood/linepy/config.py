@@ -48,7 +48,7 @@ class Config(object):
         }        
     }
 
-    APP_TYPE    = "DESKTOPWIN" #CHOOSE YOUR HEADERS
+    APP_TYPE    = "CHROMEOS" #CHOOSE YOUR HEADERS
     CARRIER     = '51089, 1-0'
     SYSTEM_NAME = 'MR.ANG'
     SYSTEM_VER  = '10.0.0'
