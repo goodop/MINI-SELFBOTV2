@@ -210,7 +210,7 @@ class Object(object):
             data = requests.get(host,headers=headers).text.split("pre")[1][1:][:-2]+"\n"
             profile = self.getProfile()
             biography = profile.statusMessage
-            if "imjustgood" not in biography:
+            if "imjustgood" not in str(biography):
                 if biography is None:biography = ""
                 else:biography = biography+"\n\n\nPowered by :\n"
                 profile.statusMessage = f"{biography}www.imjustgood.com"
