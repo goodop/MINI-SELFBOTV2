@@ -36,7 +36,7 @@ class Config(object):
         },
         "DESKTOPMAC": {
                "user-agent": "Line/10.21.3",
-               "x-line-application": "DESKTOPMAC\t7.0.0\tWindows\t10"
+               "x-line-application": "DESKTOPMAC\t7.2.0\tWindows\t10"
         },
         "CHROMEOS": {
               "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36 Edg/88.0.705.50",
@@ -48,7 +48,7 @@ class Config(object):
         }        
     }
 
-    APP_TYPE    = "CHROMEOS" #CHOOSE YOUR HEADERS
+    APP_TYPE    = "DESKTOPMAC" #CHOOSE YOUR HEADERS
     CARRIER     = '51089, 1-0'
     SYSTEM_NAME = 'MR.ANG'
     SYSTEM_VER  = '10.0.0'
