@@ -19,7 +19,9 @@ class Login(object):
         main = json.loads(requests.get(host,headers=headers).text)
         if main["status"] == 200:
            qrlink = main["result"]["qr"]
-           print("Open this link on your LINE for smartphone in 2 minutes\n" + qrlink)
+           barcode = main["result"]["barcode"]
+           print("download and input this image on QRlink\n" + barcode )
+           print("Open this link on your LINE for smartphone in 2 minutes and input barcode there\n" + qrlink)
            data = json.loads(requests.get(main["result"]["callback"]["pin"],headers=headers).text)
            if data["status"] == 200:
               print("Input Your PIN: " + data["result"]["pin"])

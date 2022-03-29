@@ -31,20 +31,20 @@ class Config(object):
 
     HEADERS = {
         "ANDROIDLITE": {
-               "user-agent": "Line/2.17.0",
-               "x-line-application": "ANDROIDLITE\t2.17.0\tAndroid OS\t10;SECONDARY"
+               "user-agent": "Line/2.17.1",
+               "x-line-application": "ANDROIDLITE\t2.17.1\tAndroid OS\t10;SECONDARY"
         },
         "DESKTOPMAC": {
                "user-agent": "Line/10.21.3",
-               "x-line-application": "DESKTOPMAC\t7.2.0\tWindows\t10"
+               "x-line-application": "DESKTOPMAC\t7.7.0\tWindows\t10"
         },
         "CHROMEOS": {
               "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36 Edg/88.0.705.50",
-              "x-line-application": "CHROMEOS\t2.4.5\tChrome OS\t1"
+              "x-line-application": "CHROMEOS\t2.5.0\tChrome OS\t1"
         },
         "DESKTOPWIN": {
-             "user-agent": "Line/7.0.0",
-             "x-line-application": "DESKTOPWIN\t7.0.0\tWindows\t10"
+             "user-agent": "Line/7.7.0",
+             "x-line-application": "DESKTOPWIN\t7.7.0\tWindows\t10"
         }        
     }
 
